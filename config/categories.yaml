@@ -1,44 +1,145 @@
-housing:
-- mortgage
-- rent
-- landlord
+# ======================
+# INCOME
+# ======================
+income:
+  - deposit ach
+  - paycheck
+  - venmo
+  - zelle
+  - deposit home banking transfer
+  - gift
+  - rent from
 
-utilities:
-- electric
-- water
-- gas
-- internet
-- comcast
-- verizon
-- at&t
+# =======================
+# GIVING
+# ======================
+giving_church:
+  - saint edward
+  - diocesen
+  - st mary's bookstore
+  - church
 
-groceries:
-- walkmart
-- kroger
-- publix
-- costco
+giving_charity:
+  - lifeline child
 
-dining:
-- panera
-- starbucks
-- chipotle
-- bob evans
-- doordash
-- door dash
-- restaurant
-- chick-fil-a
-- wendy's
+# ======================
+# HOUSING
+# ======================
+housing_rent:
+  - bh life rent
 
-transportation:
-- uber
-- shell
-- exxon
-- chevron
-- spirit
-- united airlines
+housing_utilities:
+  - bh life rent
+
+housing_pet:
+  - pet rent
+
+# ======================
+# TRANSPORTATION
+# ======================
+transportation_gas:
+  - auto care
+  - gas
+  - shell
+  - exxon
+  - chevron
+
+transportation_airfare:
+  - united airlines
+  - spirit
+
+# ======================
+# FOOD
+# ======================
+food_groceries:
+  - kroger
+  - costco
+  - publix
+  - shoprite
+
+food_dining:
+  - popeyes
+  - chipotle
+  - moe's
+  - chopt
+  - diner
+  - pizza
+  - thai
+  - no ches
+  - grill
+
+coffee:
+  - starbucks
+  - dunkin
+  - caliber coffee
+  - the well coffeehouse
+  - the well
+  - panera
+
+# ======================
+# PERSONAL / LIFESTYLE
+# ======================
+personal_fun:
+  - mckay used books
+
+health_hygiene:
+  - walgreens
+  - cvs
+
+pets:
+  - petco
+  - petsmart
+  - vetsource
+
+education:
+  - amazon books
+  - audible
+  - wgu
+  - boot.dev
+  - comptia
+  - tryhackme
+  - udemy
+  - hackthebox
+  - violin shop
+  - myperfectresume
+
+entertainment:
+  - amc theatres
 
 subscriptions:
-- notion
-- spotify
-- amazon prime
-- hallow
+  - netflix
+  - spotify
+  - hulu
+  - disney+
+  - crunchydrive
+  - amazon prime
+  - notion
+  - prime video
+
+business_expenses:
+  - cloudflare
+  - tnsos business
+
+# ======================
+# INSURANCE
+# ======================
+insurance_auto:
+  - geico
+
+insurance_health:
+  - united healthcare
+
+insurance_renters:
+  - lemonade insurance
+
+# ======================
+# INTERNET
+# ======================
+internet:
+  - comcast
+  - xfinity
+
+# ======================
+# DO NOT AUTO-CATEGORIZE
+# (intentionally omitted)
+# ======================

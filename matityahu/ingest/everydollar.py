@@ -26,7 +26,7 @@ class EveryDollarImporter(TransactionImporter):
                 tx = Transaction(
                     transaction_id=str(uuid.uuid4()),
                     date=datetime.strptime(row["Date"], "%m/%d/%Y").date(),
-                    description=row["Item"].strip().lower(),
+                    description=row["Merchant"].strip().lower(),
                     amount=amount,
                     account=row.get("Account"),
                     source=self.source_name,

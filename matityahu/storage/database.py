@@ -76,11 +76,11 @@ class Database:
     
     def fetch_uncategorized(self):
          cur = self.conn.execute(
-              "SELECT id, description FROM transactions WHERE category IS NULL;"
+              "SELECT id, description, amount FROM transactions WHERE category IS NULL;"
          )
          return cur.fetchall()
     
-    def update_category(self, transaction_id: str, category: str):
+    def update_category(self, transaction_id: str, category):
          with self.conn:
               self.conn.execute(
                    """

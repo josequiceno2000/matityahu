@@ -19,17 +19,39 @@ def main():
     categorizer = Categorizer(Path("config/categories.yaml"))
 
     rows = db.fetch_uncategorized()
-    categorized = 0
+    
+    if not rows:
+        print("No uncategorized transactions found.")
+        return
+
+    print(f"Found {len(rows)} uncategorized transactions.\n")
 
     for row in rows:
-        category = categorizer.categorize(row["description"])
-        if category:
-            db.update_category(row["id"], category)
-            categorized += 1
+        desc = row["description"]
+        amount = row["amount"]
+        suggested = categorizer.suggest(desc)
+
+        print("-" * 50)
+        print(f"Description : {desc}")
+        print(f"Amount      : {amount}")
+        print(f"Suggestion  : {suggested or 'None'}")
+        choice = input(
+            "Enter category "
+            "[enter=accept, text=new/existing, s=skip]"
+        ).strip()
+
+        if choice.lower() == "s":
+            print("Skipped.\n")
+            continue
+
+        category = suggested if choice == "" else choice
+
+        db.update_category(row["id"], category)
+        print(f"→ Categorized as '{category}'")
     
     db.close()
 
-    print(f"Categorized {categorized} transactions.")
+    print("\nGuided categorization complete.")
 
 if __name__ == "__main__":
     main()
