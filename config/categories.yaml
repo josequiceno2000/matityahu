@@ -1,0 +1,44 @@
+housing:
+- mortgage
+- rent
+- landlord
+
+utilities:
+- electric
+- water
+- gas
+- internet
+- comcast
+- verizon
+- at&t
+
+groceries:
+- walkmart
+- kroger
+- publix
+- costco
+
+dining:
+- panera
+- starbucks
+- chipotle
+- bob evans
+- doordash
+- door dash
+- restaurant
+- chick-fil-a
+- wendy's
+
+transportation:
+- uber
+- shell
+- exxon
+- chevron
+- spirit
+- united airlines
+
+subscriptions:
+- notion
+- spotify
+- amazon prime
+- hallow

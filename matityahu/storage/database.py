@@ -31,6 +31,7 @@ class Database:
                 );
                 """
             )
+        self.ensure_category_column()
         
     def insert_transactions(self, transactions: Iterable[Transaction]):
         with self.conn:
@@ -59,6 +60,36 @@ class Database:
                     for tx in transactions
                 ]
             )
-        
+    
+    def ensure_category_column(self):
+         with self.conn:
+              cols = self.conn.execute(
+                   "PRAGMA table_info(transactions);"
+              ).fetchall()
+
+              column_names = {col["name"] for col in cols}
+
+              if "category" not in column_names:
+                   self.conn.execute(
+                        "ALTER TABLE transactions ADD COLUMN category TEXT;"
+                   )
+    
+    def fetch_uncategorized(self):
+         cur = self.conn.execute(
+              "SELECT id, description FROM transactions WHERE category IS NULL;"
+         )
+         return cur.fetchall()
+    
+    def update_category(self, transaction_id: str, category: str):
+         with self.conn:
+              self.conn.execute(
+                   """
+                   UPDATE transactions 
+                   SET category = ? 
+                   WHERE id = ?;
+                   """,
+                   (category, transaction_id)
+              )
+
     def close(self):
             self.conn.close()
