@@ -1,0 +1,9 @@
+[project]
+name = "matityahu"
+version = "0.1.0"
+description = "Personal budgeting and financial health tool"
+authors = [{ name = "Jose Quiceno" }]
+requires-python = ">=3.10"
+
+[tool.black]
+line-length = 88

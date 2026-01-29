@@ -1,3 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Data
+data/raw/
+data/processed/
+data/*.db
+
+# OS / Editor
+.vscode/
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
