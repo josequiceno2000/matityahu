@@ -5,7 +5,7 @@ from pathlib import Path
 from matityahu.ingest.everydollar import EveryDollarImporter
 from matityahu.storage.database import Database
 from matityahu.categorize.rules import Categorizer
-from matityahu.reports.monthly import MonthlyReport
+from matityahu.reports.monthly import category_totals, income_vs_expenses
 
 
 def main():
@@ -52,10 +52,15 @@ def main():
 
         db.update_category(row["id"], category)
         print(f"→ Categorized as '{category}'")
+        
+    print("\nGuided categorization complete.\n")
+    
+    print(income_vs_expenses(db, 2026, 1))
+    print(category_totals(db, 2026, 1))
     
     db.close()
 
-    print("\nGuided categorization complete.")
+    
 
 if __name__ == "__main__":
     main()

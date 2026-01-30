@@ -32,7 +32,15 @@ class Database:
                 """
             )
         self.ensure_category_column()
-        
+    
+    def query(self, sql: str, params=()):
+         cur = self.conn.execute(sql, params)
+         return cur.fetchall()
+
+    def query_one(self, sql: str, params=()):
+         cur = self.conn.execute(sql, params)
+         return cur.fetchone()
+
     def insert_transactions(self, transactions: Iterable[Transaction]):
         with self.conn:
             self.conn.executemany(
