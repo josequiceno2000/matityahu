@@ -5,6 +5,8 @@ from pathlib import Path
 from matityahu.ingest.everydollar import EveryDollarImporter
 from matityahu.storage.database import Database
 from matityahu.categorize.rules import Categorizer
+from matityahu.budget.loader import BudgetLoader
+from matityahu.reports.budget_vs_actual import budget_vs_actual
 from matityahu.reports.monthly import (
     income_vs_expenses,
     category_totals,
@@ -48,6 +50,33 @@ def run_monthly_report(db: Database, year: int, month: int):
     
     print("=" * 60 + "\n")
 
+def run_budget_report(db, year: int, month: int):
+    loader = BudgetLoader(Path("config/budgets.yaml"))
+    budget = loader.get_month(year, month)
+
+    if not budget:
+        print("No budget found for this month.")
+        return
+    
+    rows = budget_vs_actual(db, budget, year, month)
+
+    print("\n" + "=" * 70)
+    print(f" Budget vs Actual Report for {year}-{month:02d} ")
+    print("=" * 70)
+    print(f"{'Category':<25} {'Budgeted':>10} {'Actual':>10} {'Remaining':>10} {'%':>8}")
+    print("-" * 70)
+
+    for r in rows:
+        pct = f"{r['percent']:.0f}%" if r['percent'] is not None else "—"
+        print(
+            f"{r['category']:<25}"
+            f"${r['budgeted']:>9,.2f}"
+            f"${r['actual']:>9,.2f}"
+            f"${r['remaining']:>9,.2f}"
+            f"{pct:>8}"
+        )
+    
+    print("=" * 70 + "\n")
 
 def main():
     db = Database()
@@ -62,6 +91,17 @@ def main():
         
         year, month = parse_year_month(args[1])
         run_monthly_report(db, year, month)
+        db.close()
+        return
+    
+    if args and args[0] == "budget":
+        if len(args) != 2:
+            print("Usage: budget YYYY-MM")
+            return
+        
+        year, month = parse_year_month(args[1])
+        run_budget_report(db, year, month)
+        db.close()
         return
     
     importer = EveryDollarImporter()
