@@ -1,11 +1,17 @@
 import csv
 import uuid
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
 
 from .base import TransactionImporter
 from .schema import Transaction
+
+def normalize_date(date_str: str) -> date:
+        """
+        Convert MM/DD/YYYY to YYYY-MM-DD format.
+        """
+        return datetime.strptime(date_str, "%m/%d/%Y").date().isoformat()
 
 class EveryDollarImporter(TransactionImporter):
     source_name = "everydollar"
@@ -25,7 +31,7 @@ class EveryDollarImporter(TransactionImporter):
 
                 tx = Transaction(
                     transaction_id=str(uuid.uuid4()),
-                    date=datetime.strptime(row["Date"], "%m/%d/%Y").date(),
+                    date=normalize_date(row["Date"]),
                     description=row["Merchant"].strip().lower(),
                     amount=amount,
                     account=row.get("Account"),

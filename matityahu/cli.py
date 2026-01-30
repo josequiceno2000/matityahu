@@ -1,8 +1,12 @@
+import argparse
+import sys
 from pathlib import Path
 
 from matityahu.ingest.everydollar import EveryDollarImporter
 from matityahu.storage.database import Database
 from matityahu.categorize.rules import Categorizer
+from matityahu.reports.monthly import MonthlyReport
+
 
 def main():
     importer = EveryDollarImporter()

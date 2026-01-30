@@ -50,7 +50,7 @@ class Database:
                 [
                     (
                         tx.transaction_id,
-                        tx.date.isoformat(),
+                        tx.date,
                         tx.description,
                         str(tx.amount),
                         tx.account,
