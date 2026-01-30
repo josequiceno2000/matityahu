@@ -5,18 +5,71 @@ from pathlib import Path
 from matityahu.ingest.everydollar import EveryDollarImporter
 from matityahu.storage.database import Database
 from matityahu.categorize.rules import Categorizer
-from matityahu.reports.monthly import category_totals, income_vs_expenses
+from matityahu.reports.monthly import (
+    income_vs_expenses,
+    category_totals,
+)
+
+def parse_year_month(value: str):
+    try:
+        year, month = value.split("-")
+        return int(year), int(month)
+    except ValueError:
+        raise ValueError("Date must be in YYYY-MM format.")
+
+def run_monthly_report(db: Database, year: int, month: int):
+    summary = income_vs_expenses(db, year, month)
+    categories = category_totals(db, year, month)
+
+    print("\n" + "=" * 60)
+    print(f" Monthly Report for {year}-{month:02d} ")
+    print("=" * 60 + "\n")
+
+    print(f"Income    : ${summary['income']:,.2f}")
+    print(f"Expenses  : ${summary['expenses']:,.2f}")
+    print("-" * 60)
+
+    net = summary["net"]
+    status = "SURPLUS" if net >= 0 else "DEFICIT"
+    print(f"Net ({status}) : ${net:,.2f}\n")
+    print("-" * 60)
+
+    if not categories:
+        print("No categorized transactions found.\n")
+        return
+
+    total_spent = sum(categories.values())
+
+    print("\nSpending by Category:")
+    print("-" * 60)
+    for category, amount in categories.items():
+        percent = (amount / total_spent) * 100
+        print(f"{category:<30} ${amount:>8,.2f}  ({percent:>5.1f}%)")
+    
+    print("=" * 60 + "\n")
 
 
 def main():
+    db = Database()
+    db.initialize()
+
+    args = sys.argv[1:]
+
+    if args and args[0] == "report":
+        if len(args) != 2:
+            print("Usage: report YYYY-MM")
+            return
+        
+        year, month = parse_year_month(args[1])
+        run_monthly_report(db, year, month)
+        return
+    
     importer = EveryDollarImporter()
     transactions = importer.import_file(
         Path("data/raw/everydollar_last_month.csv")
     )
     print(f"Imported {len(transactions)} transactions from EveryDollar.")
 
-    db = Database()
-    db.initialize()
     db.insert_transactions(transactions)
     print(f"Stored {len(transactions)} transactions into the database.")
 
@@ -52,11 +105,8 @@ def main():
 
         db.update_category(row["id"], category)
         print(f"→ Categorized as '{category}'")
-        
+
     print("\nGuided categorization complete.\n")
-    
-    print(income_vs_expenses(db, 2026, 1))
-    print(category_totals(db, 2026, 1))
     
     db.close()
 
