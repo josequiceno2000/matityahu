@@ -12,6 +12,13 @@ class Database:
         self._ensure_parent_dir()
         self.conn = sqlite3.connect(self.path)
         self.conn.row_factory = sqlite3.Row
+    
+    def get_categories(self):
+         """Returns a list of all unique categories currently used in the database."""
+         cur = self.conn.execute(
+              "SELECT DISTINCT category FROM transactions WHERE category IS NOT NULL;"
+         )
+         return [row["category"] for row in cur.fetchall()]
 
     def _ensure_parent_dir(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -26,7 +33,7 @@ class Database:
                     description TEXT NOT NULL,
                     amount TEXT NOT NULL,
                     account TEXT,
-                    source TEXT NOT NULL,
+                    source TEXT,
                     imported_at TEXT NOT NULL
                 );
                 """

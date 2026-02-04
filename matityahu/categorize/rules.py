@@ -15,8 +15,16 @@ class Categorizer:
     def _load_rules(self, path: Path) -> dict[str, list[str]]:
         try:
             with path.open() as f:
-                data = yaml.safe_load(f)
-                return data if data else {}
+                data = yaml.safe_load(f) or {}
+                normalized = {}
+
+                for category, keywords in data.items():
+                    if not isinstance(keywords, list):
+                        logger.error(f"Category '{category}' must map to a list of keywords.")
+                        continue
+                    normalized[category] = [k.lower().strip() for k in keywords]
+                return normalized
+        
         except FileNotFoundError:
             logger.error(f"Rules file not found: {path}")
             return {}
@@ -33,9 +41,11 @@ class Categorizer:
                 clean_keyword = keyword.lower().strip()
 
                 if clean_keyword in desc:
+                    print()
                     logger.info(f"MATCH: Found '{clean_keyword}' in '{desc}' -> Category: {category}")
                     return category
         
+        print()
         logger.warning(f"NO MATCH: No keywords found for '{desc}'")
         
         return None

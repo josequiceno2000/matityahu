@@ -1,63 +1,77 @@
 # ======================
 # INCOME
 # ======================
-income:
+maria_paychecks:
   - deposit ach
   - paycheck
+
+rent_from_lizzy:
   - venmo
+
+jose_paychecks:
+  - deposit by check 
+
+gift_money:
   - zelle
-  - deposit home banking transfer
-  - gift
-  - rent from
+  - miguel
 
 # =======================
 # GIVING
 # ======================
-giving_church:
+church:
   - saint edward
   - diocesen
-  - st mary's bookstore
   - church
 
-giving_charity:
+charity:
   - lifeline child
+  - st mary's bookstore
+  - st marys bookstore
 
 # ======================
 # HOUSING
 # ======================
-housing_rent:
+rent:
   - bh life rent
 
-housing_utilities:
+utilities:
   - bh life rent
 
-housing_pet:
+pet_rent:
   - pet rent
 
 # ======================
 # TRANSPORTATION
 # ======================
-transportation_gas:
+gas:
   - auto care
   - gas
   - shell
   - exxon
   - chevron
 
-transportation_airfare:
+other_car_fees:
+  - auto
+  - car
+
+airfare:
+  - united
   - united airlines
+  - delta
   - spirit
 
 # ======================
 # FOOD
 # ======================
-food_groceries:
+groceries:
   - kroger
   - costco
   - publix
   - shoprite
+  - wal-mart
+  - walmart
 
-food_dining:
+eating_out_delivery:
   - popeyes
   - chipotle
   - moe's
@@ -67,6 +81,8 @@ food_dining:
   - thai
   - no ches
   - grill
+  - doordash
+  - nochesdecolombia
 
 coffee:
   - starbucks
@@ -79,19 +95,19 @@ coffee:
 # ======================
 # PERSONAL / LIFESTYLE
 # ======================
-personal_fun:
+personal:
   - mckay used books
 
 health_hygiene:
   - walgreens
   - cvs
 
-pets:
+pet:
   - petco
   - petsmart
   - vetsource
 
-education:
+personal_development:
   - amazon books
   - audible
   - wgu
@@ -105,6 +121,8 @@ education:
 
 entertainment:
   - amc theatres
+  - amc
+  - regal cinemas 
 
 subscriptions:
   - netflix
@@ -123,13 +141,14 @@ business_expenses:
 # ======================
 # INSURANCE
 # ======================
-insurance_auto:
+car_insurance:
   - geico
 
-insurance_health:
+health_insurance:
   - united healthcare
+  - unitedhealth
 
-insurance_renters:
+renters_insurance:
   - lemonade insurance
 
 # ======================
@@ -138,6 +157,21 @@ insurance_renters:
 internet:
   - comcast
   - xfinity
+
+# ======================
+# DEBT
+# ======================
+debt:
+  - discover
+  - nelnet
+  - student loan
+
+
+# ======================
+# MISCELLANOUs
+# ======================
+miscellaneous:
+  - paypal
 
 # ======================
 # DO NOT AUTO-CATEGORIZE

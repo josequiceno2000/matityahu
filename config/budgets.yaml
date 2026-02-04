@@ -1,11 +1,70 @@
 "2026-01":
-  Housing: 2000
-  Food: 600
-  Transportation: 400
-  Giving: 500
-  Lifestyle: 300
-  Insurance: 260
-  Personal: 200
+  income:
+    maria_paychecks: 3743.88
+    gift_money: 250.00
+    lizzy_rent: 801.13
+    shipt_shopping: 0.00
+    jose_paychecks: 500.00
+    tutoring: 0.00
+  giving:
+    church: 275.00
+    maria_giving: 125.00
+    jose_giving: 125.00
+  savings:
+    emergency_fund: 0.00
+    retirement: 0.00
+    other_taxes: 0.00
+    rome: 0.00
+  housing:
+    rent: 1029.99
+    utilities: 143.59
+    furniture: 0.00
+    pet_rent: 25.00
+    lizzy_rent: 686.00
+    lizzy_utilities: 71.79
+    lizzy_pet_rent: 25.00
+  transportation:
+    gas: 175.00
+    repairs: 0.00
+    airfare: 250.00
+    other_car_fees: 65.00
+    oil_change: 0.00
+  food:
+    groceries: 250.00
+    eating_out_delivery: 400.00
+    pet_food: 0.00
+    coffee: 0.00
+  personal:
+    clothing: 0.00
+    maria_fun_money: 50.00
+    jose_fun_money: 50.00
+    health_hygiene: 25.00
+    haircuts: 0.00
+  lifestyle:
+    pet: 25.79
+    personal_development: 300.00
+    entertainment: 30.00
+    gifts_for_maria: 0.00
+    gifts_for_jose: 0.00
+    subscriptions: 43.48
+    romantic: 0.00
+    christmas: 0.00
+    phone: 22.64
+    miscellaneous: 200.00
+    internet: 36.67
+    internet_lizzy: 18.33
+    business_expenses: 0.00
+  health:
+    doctor: 29.54
+  insurance:
+    car_insurance: 202.55
+    renters_insurance: 13.33
+    health_insurance: 39.97
+    pet_insurance: 0.00
+  debt:
+    discover: 0.00
+    mom_and_dad: 500.00
+    student_loan: 0.00
 
 "2026-02":
   Housing: 2000
