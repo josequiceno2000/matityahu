@@ -34,6 +34,9 @@ class Categorizer:
         Returns a category name or None if no rule matches.
         """
         desc = description.lower().strip()
+        if not desc:
+            return None
+        
         logger.debug(f"Categorizing: '{desc}'")
 
         for category, keywords in self.rules.items():

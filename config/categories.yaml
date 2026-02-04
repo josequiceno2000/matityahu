@@ -5,7 +5,7 @@ maria_paychecks:
   - deposit ach
   - paycheck
 
-rent_from_lizzy:
+lizzy_rent:
   - venmo
 
 jose_paychecks:
@@ -14,6 +14,8 @@ jose_paychecks:
 gift_money:
   - zelle
   - miguel
+
+
 
 # =======================
 # GIVING
@@ -49,6 +51,11 @@ gas:
   - shell
   - exxon
   - chevron
+
+repairs:
+  - auto care
+  - firestone
+  - honda service
 
 other_car_fees:
   - auto
@@ -102,10 +109,17 @@ health_hygiene:
   - walgreens
   - cvs
 
+doctor:
+  - carepoint
+  - care point
+
 pet:
   - petco
-  - petsmart
   - vetsource
+
+pet_food:
+  - chewy
+  - petsmart
 
 personal_development:
   - amazon books
@@ -165,6 +179,9 @@ debt:
   - discover
   - nelnet
   - student loan
+
+mom_and_dad:
+  - paypal
 
 
 # ======================

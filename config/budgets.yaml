@@ -1,76 +1,111 @@
-"2026-01":
+2026-01:
   income:
     maria_paychecks: 3743.88
-    gift_money: 250.00
+    gift_money: 250.0
     lizzy_rent: 801.13
-    shipt_shopping: 0.00
-    jose_paychecks: 500.00
-    tutoring: 0.00
+    shipt_shopping: 0.0
+    jose_paychecks: 500.0
+    tutoring: 0.0
   giving:
-    church: 275.00
-    maria_giving: 125.00
-    jose_giving: 125.00
+    church: 275.0
+    maria_giving: 125.0
+    jose_giving: 125.0
   savings:
-    emergency_fund: 0.00
-    retirement: 0.00
-    other_taxes: 0.00
-    rome: 0.00
+    emergency_fund: 0.0
+    retirement: 0.0
+    other_taxes: 0.0
+    rome: 0.0
   housing:
     rent: 1029.99
     utilities: 143.59
-    furniture: 0.00
-    pet_rent: 25.00
-    lizzy_rent: 686.00
+    furniture: 0.0
+    pet_rent: 25.0
+    lizzy_rent: 686.0
     lizzy_utilities: 71.79
-    lizzy_pet_rent: 25.00
+    lizzy_pet_rent: 25.0
   transportation:
-    gas: 175.00
-    repairs: 0.00
-    airfare: 250.00
-    other_car_fees: 65.00
-    oil_change: 0.00
+    gas: 175.0
+    repairs: 0.0
+    airfare: 250.0
+    other_car_fees: 65.0
+    oil_change: 0.0
   food:
-    groceries: 250.00
-    eating_out_delivery: 400.00
-    pet_food: 0.00
-    coffee: 0.00
+    groceries: 250.0
+    eating_out_delivery: 400.0
+    pet_food: 0.0
+    coffee: 0.0
   personal:
-    clothing: 0.00
-    maria_fun_money: 50.00
-    jose_fun_money: 50.00
-    health_hygiene: 25.00
-    haircuts: 0.00
+    clothing: 0.0
+    maria_fun_money: 50.0
+    jose_fun_money: 50.0
+    health_hygiene: 25.0
+    haircuts: 0.0
   lifestyle:
     pet: 25.79
-    personal_development: 300.00
-    entertainment: 30.00
-    gifts_for_maria: 0.00
-    gifts_for_jose: 0.00
+    personal_development: 300.0
+    entertainment: 30.0
+    gifts_for_maria: 0.0
+    gifts_for_jose: 0.0
     subscriptions: 43.48
-    romantic: 0.00
-    christmas: 0.00
+    romantic: 0.0
+    christmas: 0.0
     phone: 22.64
-    miscellaneous: 200.00
+    miscellaneous: 200.0
     internet: 36.67
     internet_lizzy: 18.33
-    business_expenses: 0.00
+    business_expenses: 0.0
   health:
     doctor: 29.54
   insurance:
     car_insurance: 202.55
     renters_insurance: 13.33
     health_insurance: 39.97
-    pet_insurance: 0.00
+    pet_insurance: 0.0
   debt:
-    discover: 0.00
-    mom_and_dad: 500.00
-    student_loan: 0.00
-
-"2026-02":
-  Housing: 2000
-  Food: 400
-  Transportation: 500
-  Giving: 500
-  Lifestyle: 250
-  Insurance: 260
-  Personal: 200
+    discover: 0.0
+    mom_and_dad: 500.0
+    student_loan: 0.0
+2026-02:
+  housing:
+    rent: 2000
+  food:
+    groceries: 400
+  transportation:
+    gas: 500
+  giving:
+    church: 500
+  lifestyle:
+    miscellaneous: 250
+  insurance:
+    car_insurance: 260
+  personal:
+    clothing: 200
+2026-03:
+  debt:
+    discover: 14.29
+    mom_and_dad: 0.0
+    student_loan: 300.0
+  housing:
+    rent: 1029.0
+    utilities: 203.46
+    furniture: 0.0
+    pet_rent: 25.0
+    lizzy_rent: 686.0
+    lizzy_utilities: 101.73
+    lizzy_pet_rent: 25.0
+  food:
+    groceries: 300.0
+    eating_out_delivery: 200.0
+    pet_food: 50.0
+    coffee: 30.0
+  transportation:
+    gas: 175.0
+    repairs: 100.0
+    airfare: 400.0
+    other_car_fees: 50.0
+    oil_change: 120.0
+  insurance:
+    car_insurance: 202.55
+    renters_insurance: 13.33
+    health_insurance: 39.97
+    pet_insurance: 0.0

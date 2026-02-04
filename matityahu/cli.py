@@ -11,6 +11,7 @@ from matityahu.reports.budget_vs_actual import (
     budget_vs_actual,
     flatten_budget,
 )
+from matityahu.budget.planner import run_zero_sum_planner
 from matityahu.reports.formatting import validate_categories
 from matityahu.reports.monthly import (
     income_vs_expenses,
@@ -185,6 +186,16 @@ def main():
         run_budget_report(db, year, month)
         db.close()
         return
+
+    if args and args[0] == "plan":
+        if len(args) != 2:
+            print("Usage: plan YYYY-MM")
+            return
+        
+        year, month = parse_year_month(args[1])
+        run_zero_sum_planner(year, month)
+        return
+        
 
 if __name__ == "__main__":
     main()
